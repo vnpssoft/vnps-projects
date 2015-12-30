@@ -1,13 +1,18 @@
 package com.vnps.domain.usermanagement;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity 
@@ -77,6 +82,18 @@ public class User {
 	@Column (name="PH_MOBILE")
 	private String mobilePhone;
 
+	@OneToMany (fetch=FetchType.LAZY)
+	@JoinTable (name="USER_TYPES",
+				joinColumns=@JoinColumn(name="USER_ID"),
+				inverseJoinColumns=@JoinColumn(name="TYPE_ID"))
+	private List<UserType> userTypes;
+	
+	@OneToMany (fetch=FetchType.LAZY)
+	@JoinTable (name="USER_ROLES",
+				joinColumns=@JoinColumn(name="USER_ID"),
+				inverseJoinColumns=@JoinColumn(name="ROLE_ID"))
+	private List<Role> roles;
+	
 	public long getUserId() {
 		return userId;
 	}
@@ -147,6 +164,22 @@ public class User {
 
 	public void setMobilePhone(String mobilePhone) {
 		this.mobilePhone = mobilePhone;
+	}
+
+	public List<UserType> getUserTypes() {
+		return userTypes;
+	}
+
+	public void setUserTypes(List<UserType> userTypes) {
+		this.userTypes = userTypes;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 	
 }

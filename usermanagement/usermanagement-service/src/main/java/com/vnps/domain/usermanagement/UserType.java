@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity 
@@ -22,7 +23,8 @@ public class UserType {
 	private Date createdDate;
 	
 	@Column (name="CREATED_BY")
-	private String createdBy;
+	@ManyToOne
+	private User createdBy;
 
 	public long getUserId() {
 		return userId;
@@ -48,11 +50,11 @@ public class UserType {
 		this.createdDate = createdDate;
 	}
 
-	public String getCreatedBy() {
+	public User getCreatedBy() {
 		return createdBy;
 	}
 
-	public void setCreatedBy(String createdBy) {
+	public void setCreatedBy(User createdBy) {
 		this.createdBy = createdBy;
 	}
 	
