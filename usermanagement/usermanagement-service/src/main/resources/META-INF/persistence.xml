@@ -1,0 +1,15 @@
+<persistence-unit name="userman-persistence"
+	transaction-type="RESOURCE_LOCAL">
+	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	<class>se.mycomp.domain.User</class>
+	<properties>
+		<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+		<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/commportal" />
+		<property name="javax.persistence.jdbc.user" value="portaluser" />
+		<property name="javax.persistence.jdbc.password" value="p0rta1usr" />
+		<property name="hibernate.show_sql" value="true" />
+		<property name="hibernate.format_sql" value="true" />
+	</properties>
+</persistence-unit>

@@ -25,6 +25,15 @@ public class User {
 	
 	@Embedded
 	private Name userName;
+
+	@Column (name="PASSWORD")
+	private String password;
+
+	@Column (name="EMAIL_ADDRESS")
+	private String emailAddress;
+	
+	@Column (name="ALT_EMAIL_ADDRESS")
+	private String altEmailAddress;
 	
 	@Embedded
 	@AttributeOverrides ({
@@ -41,7 +50,7 @@ public class User {
 				column=@Column(name="HOME_STATE")
 			),
 			@AttributeOverride (name="zipCode",
-			 column=@Column(name="HOME_ZIPCODE")
+			 column=@Column(name="HOME_ZIPCODE4")
 			)}
 			
 	)
@@ -62,7 +71,7 @@ public class User {
 			column=@Column(name="MAIL_STATE")
 		),
 		@AttributeOverride (name="zipCode",
-		 column=@Column(name="MAIL_ZIPCODE")
+		 column=@Column(name="MAIL_ZIPCODE4")
 		)}
 	)	
 	private Address mailingAddress;
@@ -72,6 +81,9 @@ public class User {
 	
 	@Column (name="GENDER")
 	private String gender;
+		
+	@Column (name="CONFIRM_DT")
+	private Date confirmationDate;
 	
 	@Column (name="PH_HOME")
 	private String homePhone;

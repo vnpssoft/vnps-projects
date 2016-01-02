@@ -13,8 +13,8 @@ import javax.persistence.Table;
 public class UserType {
 
 	@Id
-	@Column (name="USER_ID")
-	private long userId;
+	@Column (name="TYPE_ID")
+	private long typeId;
 	
 	@Column (name="TYPE_DESC")
 	private String typeDescription;
@@ -26,12 +26,12 @@ public class UserType {
 	@ManyToOne
 	private User createdBy;
 
-	public long getUserId() {
-		return userId;
+	public long getTypeId() {
+		return typeId;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setTypeId(long typeId) {
+		this.typeId = typeId;
 	}
 
 	public String getTypeDescription() {

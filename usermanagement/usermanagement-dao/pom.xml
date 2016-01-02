@@ -16,6 +16,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.vnps</groupId>
+			<artifactId>vnps-core</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.vnps</groupId>
 			<artifactId>camunda-core</artifactId>
 			<version>1.0.0</version>
 		</dependency>
